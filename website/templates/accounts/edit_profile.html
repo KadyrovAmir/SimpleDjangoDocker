@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Редактирование профиля{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {% if success %}
+                <div class="alert alert-success" role="alert">
+                    Изменения сохранены
+                </div>
+            {% endif %}
+            <h1>
+                Редактирование профиля
+            </h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

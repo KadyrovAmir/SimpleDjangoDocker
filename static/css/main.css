@@ -1,0 +1,69 @@
+@media (min-width: 992px) {
+    #main {
+        padding-top: 104px;
+    }
+}
+
+#main {
+    padding-top: calc(2rem + 74px);
+}
+
+@font-face {
+    font-family: "My Website Font";
+    src: url("fonts/jaapokkisubtract-regular.svg") format("svg"),
+    url("fonts/jaapokkisubtract-regular.woff") format("woff"),
+    url("fonts/jaapokkisubtract-regular.ttf") format("ttf"),
+    url("fonts/jaapokkisubtract-regular.eot") format("eot");
+}
+
+.navbar-brand {
+    font-family: "My Website Font";
+}
+
+.website-bg-primary {
+    background-color: #f35a5a;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+    border-bottom: 2px solid transparent;
+    transition: border-bottom .2s, color .2s;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+    color: #f35a5a;
+    border-color: #f35a5a;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+    background: none;
+    color: white;
+    border-color: #f35a5a;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link.active:hover {
+    background: none;
+    color: #f35a5a;
+}
+
+.masthead .masthead-avatar {
+    width: 170px;
+    height: 170px;
+}
+
+.masthead {
+    padding-top: 104px;
+    padding-bottom: 6rem;
+    background-image: url("../img/cover.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .masthead {
+        padding-top: 104px;
+        padding-bottom: 6rem;
+        background-image: url("../img/cover.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

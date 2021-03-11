@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<header class="masthead text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'img/logo.png' %}" alt=""/>
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Добро пожаловать!</h1>
+    </div>
+</header>
+<h1>
+    Главная страница
+</h1>
+{% endblock %}
