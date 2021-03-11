@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from django.core.mail import send_mail
 
 import bleach
-from website import settings
 from .forms import ContactForm
+from .tasks import send_mail_task
 
 
 def contact(request: HttpRequest) -> HttpResponse:
@@ -14,7 +13,7 @@ def contact(request: HttpRequest) -> HttpResponse:
             name = bleach.clean(form.cleaned_data["name"])
             email = bleach.clean(form.cleaned_data["email"])
             message = bleach.clean(form.cleaned_data["message"])
-            send_mail(f"{name} sent a message.", message, email, [settings.DEFAULT_FROM_EMAIL])
+            send_mail_task.delay(name, email, message)
             return render(request, "contact.html", {"form": ContactForm(), "success": True})
     form = ContactForm()
     return render(request, "contact.html", {"form": form})

@@ -24,9 +24,26 @@ services:
 
   postgres:
     image: postgres
+    container_name: postgres
     ports:
     - "5432:5432"
     env_file:
       - .env/.django
     volumes:
     - db-data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq
+
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env/.django
+    container_name: celery
+    depends_on:
+      - rabbitmq
+      - postgres
+    command: celery -A website worker -l INFO
